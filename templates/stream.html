@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing Result | Segmentation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            display: inline-block;
+            border: 2px solid #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-feed {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .controls {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Processing Live Result</h1>
+
+        <div class="video-wrapper">
+            <!-- This image tag is the key mechanism for streaming MJPEG -->
+            <img src="{{ url_for('video_feed', filename=filename) }}" class="video-feed" alt="Wait for stream...">
+        </div>
+
+        <div class="controls">
+            <a href="/"><button>⬅️ Upload New Video</button></a>
+        </div>
+
+        <p style="color: #aaa; margin-top: 10px; font-size: 0.9em;">Using SegFormer | GPU Acceleration Enabled</p>
+    </div>
+</body>
+
+</html>

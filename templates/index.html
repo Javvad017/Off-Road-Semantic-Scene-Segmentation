@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Off-Road Semantic AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Load FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-mountain-sun"></i>
+            <span>Off-Road AI</span>
+        </div>
+        <nav>
+            <a href="#" class="nav-link active">Dashboard</a>
+            <a href="#about" class="nav-link">About</a>
+        </nav>
+    </header>
+
+    <main>
+        
+        <section class="hero">
+            <h1>Advanced Terrain Segmentation</h1>
+            <p>Upload your off-road footage or paste a YouTube link. We'll handle the rest.</p>
+        </section>
+
+        <!-- Upload Zone -->
+        <div class="upload-container" id="drop-zone">
+            <div class="upload-icon">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+            </div>
+            <div class="upload-text">Drag & Drop Video Here</div>
+            <div class="upload-hint">Supported formats: MP4, AVI, MOV</div>
+            
+            <input type="file" id="file-input" accept="video/*" hidden>
+            
+            <div class="divider" style="margin: 1rem 0; opacity: 0.5;">OR</div>
+
+            <div class="youtube-input-group">
+                <input type="text" id="youtube-url" class="youtube-input" placeholder="Paste YouTube URL...">
+                <button id="btn-process" class="btn-primary">Process Video</button>
+            </div>
+        </div>
+
+        <!-- Processing Status -->
+        <div class="processing-status" id="status-panel">
+            <div class="status-header">
+                <span id="status-text">Processing...</span>
+                <span id="status-percent">0%</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <!-- Results Display -->
+        <div class="results-container" id="results-panel">
+            
+            <!-- Original Input -->
+            <div class="video-wrapper">
+                <h3>Original Source <i class="fa-solid fa-film"></i></h3>
+                <video id="input-video" controls autoplay muted loop>
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <!-- AI Output -->
+            <div class="video-wrapper">
+                <h3>AI Segmentation <span class="badge">Live</span></h3>
+                <video id="output-video" controls autoplay loop>
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                
+                <div class="stats-panel">
+                    <div class="stat-item">
+                        <span class="stat-value" id="fps-val">--</span>
+                        <span class="stat-label">FPS</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="safe-val">--%</span>
+                        <span class="stat-label">Safe Path</span>
+                    </div>
+                    <div class="stat-item">
+                        <a href="#" id="download-link" class="btn-download">
+                            <i class="fa-solid fa-download"></i> Result
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Hackathon Team.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Processing Result</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #00ff00;
+        }
+
+        .video-container {
+            margin-top: 20px;
+            border: 2px solid #333;
+            display: inline-block;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .back-btn {
+            margin-top: 20px;
+            display: inline-block;
+            color: #00ff00;
+            text-decoration: none;
+            border: 1px solid #00ff00;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Processing Video: {{ filename }}</h1>
+    <div class="video-container">
+        <!-- MJPEG Stream -->
+        <img src="{{ url_for('video_feed', filename=filename) }}" alt="Processing Feed...">
+    </div>
+    <br>
+    <a href="/" class="back-btn">Process Another Video</a>
+</body>
+
+</html>
